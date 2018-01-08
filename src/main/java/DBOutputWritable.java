@@ -19,13 +19,17 @@ public class DBOutputWritable implements DBWritable{
 	public void readFields(ResultSet arg0) throws SQLException {
 
 		//how to read fields?
-		
+		this.starting_phrase = arg0.getString(1);
+		this.following_word = arg0.getString(2);
+		this.count = arg0.getInt(3);
 	}
 
 	public void write(PreparedStatement arg0) throws SQLException {
 
 		//how to write fields?
-		
+		arg0.setString(1, starting_phrase);
+		arg0.setString(2, following_word);
+		arg0.setInt(3, count);
 	}
 
 }
